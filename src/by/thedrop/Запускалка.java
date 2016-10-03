@@ -13,6 +13,7 @@ public class Запускалка {
         //List<Integer> список = new LinkedList<>(Arrays.asList(1,2,3,4,5));
         List<Integer> список = asList(1,2,3,4,5);
 
+        //Выбрасывается NullPointer  и тут же исчезает
         try {
             throw null;
         } finally {
