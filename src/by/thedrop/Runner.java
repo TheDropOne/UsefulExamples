@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.StringJoiner;
 
 import static java.util.Arrays.*;
 
@@ -15,29 +16,39 @@ public class Runner {
         //List<Integer> список = new LinkedList<>(Arrays.asList(1,2,3,4,5));
         List<Integer> список = asList(1, 2, 3, 4, 5);
 
+        // /^\w\w/a
+        char a = 'f';
+
+        int[] array = {1,2,3,4,5};
+        //медленно
+        String s = array[0]+"";
+        //быстро
+        String s2 = String.valueOf(array[0]);
+
+        String result = "";
+        //slow
+        if(result.equals(""));
+        //fast
+        if(result.isEmpty());
+
+        //плохо
+        if (result.equals("broadcast")) ;
+        //хорошо
+        if ("broadcast".equals(result)) ;
+
+        StringBuilder stringBuilder = new StringBuilder(result);
+        for (int b : array){
+            // slow
+            result += b+"";
+            //fast
+            stringBuilder.append(b);
+        }
+
         //Выбрасывается NullPointer  и тут же исчезает
         try {
-            throw new Исключение(new Строка("Кукарек"));
+            throw null;
         } finally {
             return;
         }
     }
 }
-
-class Исключение extends Выбрасываемое {
-    public Исключение(Строка кукарек) {
-        super(кукарек);
-        Система.наружу.кукарекнуть(кукарек);
-        Система.наружу.кукарекнуть(super.получитьКукарек());
-    }
-
-}
-class Выбрасываемое extends Throwable{
-    public Выбрасываемое(Строка полныйПипец){
-        super(полныйПипец.строка);
-    }
-    public Строка получитьКукарек(){
-        return  new Строка(super.getMessage());
-    }
-}
-
